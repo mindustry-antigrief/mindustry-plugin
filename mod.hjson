@@ -3,6 +3,6 @@ displayName: "Foo's client plugin"
 author: "buthed010203"
 description: "Small plugin used for communication between foo's client users and the server, will include various tools and utilities"
 version: "1"
-minGameVersion: "135"
+minGameVersion: "136"
 dependencies: []
 hidden: true
