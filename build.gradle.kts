@@ -17,8 +17,8 @@ repositories {
 }
 
 dependencies {
-    compileOnly("com.github.Anuken.Arc:arc-core:v139")
-    compileOnly("com.github.Anuken.MindustryJitpack:core:v139")
+    compileOnly("com.github.Anuken.Arc:arc-core:v140")
+    compileOnly("com.github.Anuken.MindustryJitpack:core:v140")
 
     annotationProcessor("com.github.Anuken:jabel:0.9.0")
 }
