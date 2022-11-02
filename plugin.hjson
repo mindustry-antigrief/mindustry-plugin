@@ -1,0 +1,6 @@
+name: fooplugin
+author: buthed010203
+description: "Plugin with various useful features that are mostly designed for use with Foo's client."
+main: foo.FoosPlugin
+version: 2
+minGameVersion: 139
