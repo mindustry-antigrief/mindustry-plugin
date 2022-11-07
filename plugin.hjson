@@ -4,3 +4,4 @@ description: "Plugin with various useful features that are mostly designed for u
 main: foo.FoosPlugin
 version: 2
 minGameVersion: 139
+hidden: true
