@@ -7,6 +7,7 @@ import mindustry.gen.*
 import mindustry.mod.*
 import mindustry.net.*
 import mindustry.net.Administration.*
+import java.io.*
 
 @Suppress("unused")
 class FoosPlugin : Plugin() {
@@ -17,7 +18,7 @@ class FoosPlugin : Plugin() {
 
     /** Called after command creation */
     override fun init() {
-        Log.info("[accent]Initialized Foo's Plugin v$version")
+        Log.info("Initialized Foo's Plugin v$version")
 
         /** @since v1 Plugin presence check */
         Vars.netServer.addPacketHandler("fooCheck") { player, _ ->
@@ -47,7 +48,7 @@ class FoosPlugin : Plugin() {
 
     /** @since v2 Informs clients of the transmission forwarding state. When [player] is null, the status is sent to everyone */
     private fun enableTransmissions(player: Player? = null) {
-        val enabled = transmissions.string()
+        val enabled = transmissions.bool().toString()
         if (player != null) Call.clientPacketReliable(player.con, "fooTransmissionEnabled", enabled)
         else Call.clientPacketReliable("fooTransmissionEnabled", enabled)
     }

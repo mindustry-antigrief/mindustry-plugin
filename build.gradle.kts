@@ -30,3 +30,20 @@ tasks.jar {
     }
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 }
+
+tasks.create("buildMove") {
+    dependsOn("jar")
+    doLast {
+        copy {
+            from("build/libs/mindustry-plugin.jar")
+            into("${System.getenv("destination")}/config/mods")
+        }
+
+        exec {
+            workingDir = File(System.getenv("destination"))
+            commandLine("java", "-jar", System.getenv("jarpath"), "host")
+            standardOutput = System.out
+            standardInput = System.`in`
+        }
+    }
+}
