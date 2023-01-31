@@ -28,7 +28,7 @@ jobs:
           path: build/libs/${{ github.event.repository.name }}.jar
 
       - name: Generate Release Name
-        run: vers=$(tail -1 plugin.hjson) && echo "vers=${vers#version: }" >> $GITHUB_ENV
+        run: 'vers=$(tail -1 plugin.hjson) && echo "vers=${vers#version: }" >> $GITHUB_ENV'
 
       - name: Create Release
         id: create_release
