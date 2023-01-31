@@ -27,6 +27,9 @@ jobs:
           name: ${{ github.event.repository.name }}
           path: build/libs/${{ github.event.repository.name }}.jar
 
+      - name: Generate Release Name
+        run: vers=$(tail -1 plugin.hjson) && echo "vers=${vers#version: }" >> $GITHUB_ENV
+
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
@@ -34,7 +37,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{github.run_number}}
-          release_name: ${{github.run_number}}
+          release_name: ${{env.vers}}
           draft: false
           prerelease: false
 
